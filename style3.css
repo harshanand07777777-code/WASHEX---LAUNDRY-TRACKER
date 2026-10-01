@@ -1,0 +1,463 @@
+/* TRACK LAUNDRY PAGE */
+
+.track-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+}
+
+/* MAIN BACKGROUND */
+
+.track-main {
+    flex: 1;
+    min-height: calc(100vh - 100px);
+    padding: 35px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background:
+        radial-gradient(
+            circle at 92% 82%,
+            rgba(119, 255, 206, 0.24),
+            transparent 24%
+        ),
+        radial-gradient(
+            circle at 8% 15%,
+            rgba(207, 216, 255, 0.22),
+            transparent 25%
+        ),
+        #ffffff;
+}
+
+/* TRACK CARD */
+
+.track-card {
+    width: 440px;
+    max-width: 100%;
+    padding: 30px;
+    background: #ffffff;
+    border: 1px solid #f0f1f7;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(42, 75, 150, 0.07);
+    text-align: center;
+}
+
+/* LOGO */
+
+.track-logo {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0f2ff;
+    border-radius: 12px;
+}
+
+.track-logo span {
+    width: 22px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #2861e9;
+    border-radius: 4px;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* EYEBROW */
+
+.track-eyebrow {
+    width: fit-content;
+    margin: 0 auto 10px;
+    padding: 5px 11px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    background: #f0f2ff;
+    color: #50668f;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 0.3px;
+}
+
+.track-dot {
+    width: 7px;
+    height: 7px;
+    background: #2861e9;
+    border-radius: 50%;
+}
+
+/* HEADING */
+
+.track-card h1 {
+    margin: 0 0 7px;
+    color: #252e3e;
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: -0.7px;
+}
+
+.track-description {
+    max-width: 300px;
+    margin: 0 auto 25px;
+    color: #788292;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* FORM */
+
+.track-card form {
+    text-align: left;
+}
+
+.track-card form label {
+    display: block;
+    margin-bottom: 9px;
+    color: #303949;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* INPUT BOX */
+
+.tracking-input {
+    width: 100%;
+    height: 44px;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    background: #ffffff;
+    border: 1px solid #e6e8f0;
+    border-radius: 6px;
+}
+
+.tracking-input:focus-within {
+    border-color: #2861e9;
+    box-shadow: 0 0 0 2px rgba(40, 97, 233, 0.08);
+}
+
+.ticket-icon {
+    color: #8b96a9;
+    font-size: 18px;
+}
+
+.tracking-input input {
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #303949;
+    font-size: 14px;
+}
+
+.tracking-input input::placeholder {
+    color: #9ba3b0;
+}
+
+.demo-badge {
+    flex-shrink: 0;
+    padding: 5px 8px;
+    background: #edf0ff;
+    color: #5375b4;
+    border-radius: 5px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+/* FORMAT HINT */
+
+.format-hint {
+    margin: 7px 0 17px;
+    padding-left: 4px;
+    color: #858d9b;
+    font-size: 11px;
+}
+
+/* TRACK BUTTON */
+
+.tracking-submit {
+    width: 100%;
+    height: 47px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: none;
+    border-radius: 7px;
+    background: #2861e9;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 3px 7px rgba(40, 97, 233, 0.18);
+    transition: background 0.2s;
+}
+
+.tracking-submit:hover {
+    background: #174bc5;
+}
+
+.tracking-submit span {
+    font-size: 19px;
+}
+
+/* INFO BOX */
+
+.track-info {
+    margin-top: 15px;
+    padding: 10px;
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    background: #f2f2ff;
+    border-radius: 7px;
+    text-align: left;
+}
+
+.info-icon {
+    flex-shrink: 0;
+    color: #4780c5;
+    font-size: 15px;
+}
+
+.track-info p {
+    color: #6e788a;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* LOGIN STATUS */
+
+.logged-in {
+    width: fit-content;
+    margin: 39px auto 13px;
+    padding: 6px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #f0f1ff;
+    border-radius: 20px;
+    color: #697589;
+    font-size: 12px;
+}
+
+.logged-dot {
+    width: 8px;
+    height: 8px;
+    background: #179b7e;
+    border-radius: 50%;
+}
+
+/* BOTTOM LINKS */
+
+.track-bottom-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    font-size: 12px;
+}
+
+.track-bottom-links a {
+    color: #526071;
+    text-decoration: none;
+}
+
+.track-bottom-links a:last-child {
+    color: #2861e9;
+    font-weight: bold;
+}
+
+.track-bottom-links a:hover {
+    text-decoration: underline;
+}
+
+.link-separator {
+    color: #aab1bf;
+}
+
+/* CAMPUS SERVICE */
+
+.campus-service {
+    margin-top: 18px;
+    color: #7d8795;
+    font-size: 13px;
+    text-align: center;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+    .track-main {
+        padding: 30px 15px;
+    }
+
+    .track-card {
+        padding: 25px 20px;
+    }
+
+    .track-card h1 {
+        font-size: 25px;
+    }
+
+    .track-description {
+        font-size: 12px;
+    }
+
+    .logged-in {
+        margin-top: 28px;
+    }
+}
+
+@media (max-width: 380px) {
+    .track-card {
+        padding: 22px 15px;
+    }
+
+    .track-card h1 {
+        font-size: 22px;
+    }
+
+    .tracking-input {
+        gap: 5px;
+        padding: 0 7px;
+    }
+
+    .tracking-input input {
+        font-size: 12px;
+    }
+
+    .demo-badge {
+        font-size: 8px;
+        padding: 5px;
+    }
+
+    .track-bottom-links {
+        gap: 9px;
+        font-size: 11px;
+    }
+}
+
+/* FIX FOR WASHEX TRACK PAGE */
+
+.track-page {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #283344;
+    background: #ffffff;
+}
+
+.track-page .navbar {
+    width: 100%;
+    height: 65px;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e8ef;
+}
+
+.track-page .brand {
+    color: #283344;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.track-page nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.track-page nav a {
+    color: #596273;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.track-page nav a:hover {
+    color: #2861e9;
+}
+
+.track-page .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.track-page .track-btn {
+    background: #2861e9;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.track-page .profile-btn {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eaf0ff;
+    border-radius: 50%;
+    color: #2861e9;
+    text-decoration: none;
+}
+
+.track-page h1,
+.track-page p,
+.track-page label {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.track-page .track-card h1 {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.track-page .auth-footer {
+    width: 100%;
+    min-height: 65px;
+    padding: 12px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    border-top: 1px solid #e5e8ef;
+}
+
+@media (max-width: 650px) {
+    .track-page .navbar {
+        padding: 0 12px;
+    }
+
+    .track-page nav {
+        gap: 10px;
+    }
+
+    .track-page nav a {
+        font-size: 10px;
+    }
+
+    .track-page .auth-footer {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}

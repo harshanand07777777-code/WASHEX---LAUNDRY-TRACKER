@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Laundry - Washex</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body class="track-page">
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <a href="index.html" class="brand">Washex</a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="#">Services</a>
+            <a href="#">About Us</a>
+            <a href="#">Contact</a>
+            <a href="login.html">Login</a>
+        </nav>
+
+        <div class="nav-actions">
+            <a href="track.html" class="track-btn">Track Laundry</a>
+            <a href="login.html" class="profile-btn">♙</a>
+        </div>
+    </header>
+
+    <!-- Main Section -->
+    <main class="track-main">
+
+        <section class="track-card">
+
+            <!-- Logo -->
+            <div class="track-logo">
+                <span>W</span>
+            </div>
+
+            <!-- Heading -->
+            <div class="track-eyebrow">
+                <span class="track-dot"></span>
+                TRACKING PORTAL
+            </div>
+
+            <h1>Track Your Laundry</h1>
+
+            <p class="track-description">
+                Enter your laundry number to check the current
+                status of your laundry.
+            </p>
+
+            <!-- Tracking Form -->
+            <form action="#" method="get">
+
+                <label for="laundry-number">
+                    Laundry Number
+                </label>
+
+                <div class="tracking-input">
+                    <span class="ticket-icon">▤</span>
+
+                    <input
+                        type="text"
+                        id="laundry-number"
+                        name="laundry-number"
+                        placeholder="e.g. WX-10025"
+                        pattern="WX-[0-9]{4,5}"
+                        title="Enter a number like WX-10025"
+                        required>
+
+                    <span class="demo-badge">DEMO: 10025</span>
+                </div>
+
+                <p class="format-hint">
+                    Format: WX-XXXX
+                </p>
+
+                <button type="submit" class="tracking-submit">
+                    Track Laundry <span>→</span>
+                </button>
+
+            </form>
+
+            <!-- Information -->
+            <div class="track-info">
+                <span class="info-icon">ⓘ</span>
+                <p>
+                    Your laundry number can be found on your
+                    printed pickup token or digital receipt.
+                </p>
+            </div>
+
+            <!-- Login Status -->
+            <div class="logged-in">
+                <span class="logged-dot"></span>
+                Logged in as Rahul Sharma
+            </div>
+
+            <!-- Bottom Links -->
+            <div class="track-bottom-links">
+                <a href="index.html">← Back to Home</a>
+                <span class="link-separator">•</span>
+                <a href="#">Need help?</a>
+            </div>
+
+        </section>
+
+        <p class="campus-service">
+            Campus Laundry Service
+        </p>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="auth-footer">
+        <a href="index.html" class="footer-brand">Washex</a>
+
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="#">Services</a>
+            <a href="#">About Us</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <span class="copyright">
+            © 2026 Washex Laundry Tracker. All rights reserved.
+        </span>
+    </footer>
+
+</body>
+</html>
