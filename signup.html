@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - Washex</title>
+  <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <a href="login.html" class="brand">Washex</a>
+
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Services</a>
+      <a href="#">About Us</a>
+      <a href="#">Contact</a>
+      <a href="login.html">Login</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="trackpage.html" class="track-btn">Track Laundry</a>
+      <a href="login.html" class="profile-btn">♙</a>
+    </div>
+  </header>
+
+  <main class="auth-main signup-main">
+    <section class="auth-card signup-card">
+
+      <div class="signup-logo">
+        <div class="auth-logo">W</div>
+        <small>Washex</small>
+      </div>
+
+      <div class="eyebrow">● CAMPUS PORTAL</div>
+
+      <h1>Create Your Account</h1>
+      <p class="description">
+        Join Washex to track and manage your campus
+        laundry effortlessly.
+      </p>
+
+      <form action="#" method="post">
+
+        <label for="fullname">Full Name</label>
+        <div class="input-wrap">
+          <span>♙</span>
+          <input
+            type="text"
+            id="fullname"
+            name="fullname"
+            placeholder="Alex Johnson"
+            required>
+        </div>
+
+        <label for="signup-email">Campus Email Address</label>
+        <div class="input-wrap">
+          <span>✉</span>
+          <input
+            type="email"
+            id="signup-email"
+            name="email"
+            placeholder="alex@campus.edu"
+            required>
+        </div>
+
+        <div class="label-row">
+          <label for="phone">Mobile Phone Number</label>
+          <span class="field-hint">For SMS Cycle Alerts</span>
+        </div>
+
+        <div class="input-wrap">
+          <span>▯</span>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="+1 (555) 019-2834"
+            required>
+        </div>
+
+        <div class="password-grid">
+          <div>
+            <label for="signup-password">Password</label>
+            <div class="input-wrap">
+              <input
+                type="password"
+                id="signup-password"
+                name="password"
+                placeholder="Create password"
+                minlength="8"
+                required>
+            </div>
+          </div>
+
+          <div>
+            <label for="confirm-password">Confirm Password</label>
+            <div class="input-wrap">
+              <input
+                type="password"
+                id="confirm-password"
+                name="confirm-password"
+                placeholder="Confirm password"
+                minlength="8"
+                required>
+            </div>
+          </div>
+        </div>
+
+        <label class="terms-label">
+          <input type="checkbox" name="terms" required>
+          <span>
+            I agree to the
+            <a href="#">Washex Terms of Service</a>
+            and
+            <a href="#">Campus Laundry Guidelines</a>.
+          </span>
+        </label>
+
+        <button type="submit" class="primary-btn">
+          Create Account →
+        </button>
+
+      </form>
+
+      <p class="switch-auth">
+        Already have an account?
+        <a href="login.html">Login</a>
+      </p>
+
+    </section>
+  </main>
+
+  <footer class="auth-footer">
+    <a href="login.html" class="footer-brand">Washex</a>
+
+    <div class="footer-links">
+      <a href="#">Home</a>
+      <a href="#">Services</a>
+      <a href="#">About Us</a>
+      <a href="#">Contact</a>
+    </div>
+
+    <span>© 2026 Washex Laundry Tracker. All rights reserved.</span>
+  </footer>
+
+</body>
+</html>
