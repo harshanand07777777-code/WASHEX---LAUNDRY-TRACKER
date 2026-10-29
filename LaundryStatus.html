@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laundry Status | Washex</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="LaundryStatus.css">
 </head>
 
 <body class="tracking-page">
@@ -20,13 +20,13 @@
             <a href="index.html">Home</a>
             <a href="#">Services</a>
             <a href="#">About Us</a>
-            <a href="Contactus.html">Contact</a>
-            <a href="login.html">Login</a>
+            <a href="ContactUs.html">Contact</a>
+            <a href="Login.html">Login</a>
         </nav>
 
         <div class="tr-header-actions">
-            <a href="trackpage.html" class="tr-track-btn">Track Laundry</a>
-            <a href="login.html" class="tr-user-icon" aria-label="Login">♙</a>
+            <a href="TrackPage.html" class="tr-track-btn">Track Laundry</a>
+            <a href="Login.html" class="tr-user-icon" aria-label="Login">♙</a>
         </div>
     </header>
 
@@ -241,15 +241,15 @@
                 <p>Visit Campus Hub Room 104 or call +1 (800) 555-WASH.</p>
             </div>
 
-            <a href="Contactus.html" class="tr-help-btn">Contact Helpdesk</a>
+            <a href="ContactUs.html" class="tr-help-btn">Contact Helpdesk</a>
         </section>
 
         <!-- Bottom Actions -->
         <section class="tr-bottom-actions">
-            <a href="trackpage.html" class="tr-back-btn">← Back to Tracking</a>
+            <a href="TrackPage.html" class="tr-back-btn">← Back to Tracking</a>
 
             <div class="tr-action-group">
-                <button type="button" class="tr-print-btn">▣ Print Receipt</button>
+                <button onclick="printReceipt()">Print Receipt</button>
                 <a href="index.html" class="tr-home-btn">Go to Home</a>
             </div>
         </section>
@@ -267,11 +267,14 @@
             <a href="index.html">Home</a>
             <a href="#">Services</a>
             <a href="#">About Us</a>
-            <a href="Contactus.html">Contact</a>
+            <a href="ContactUs.html">Contact</a>
         </nav>
 
         <p>© 2026 Washex Laundry Tracker. All rights reserved.</p>
     </footer>
+    
+    <script src="script.js"></script>
+
 
 </body>
 </html>
