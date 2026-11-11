@@ -1,4 +1,4 @@
-// Arun — Track Laundry page
+
 
 // Laundry tracking: look up the submitted ID in the server's order records.
 const trackingForm = document.getElementById("trackingForm");
