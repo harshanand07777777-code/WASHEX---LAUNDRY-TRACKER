@@ -4,23 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Washex - Services</title>
-    <link rel="stylesheet" href="About&Services.css">
+    <link rel="stylesheet" href="../styles/About&Services.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
 
-<header>
-    <div class="logo">Washex</div>
-
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="Services.html">Services</a>
-        <a href="About.html">About Us</a>
-        <a href="ContactUs.html">Contact</a>
-        <a href="Login.html">Login</a>
+<header class="site-header">
+    <a class="site-logo" href="index.html" aria-label="Washex home">Washex</a>
+    <nav class="site-nav" aria-label="Main navigation">
+            <a href="index.html">Home</a>
+            <a href="Services.html" aria-current="page">Services</a>
+            <a href="About.html">About Us</a>
+            <a href="ContactUs.html">Contact</a>
+            <a href="Login.html">Login</a>
     </nav>
-
-    <button class="track-btn">Track Laundry</button>
+    <div class="site-header-actions">
+        <a class="site-track-btn" href="TrackPage.html">Track Laundry</a>
+        <a class="site-login-btn" href="Login.html" aria-label="Login">Login</a>
+    </div>
 </header>
 
 <section class="service-hero">
@@ -34,7 +36,7 @@
     </div>
 
     <div class="service-image">
-        <img src="washing-machine.jpeg" alt="Washing Machine">
+        <img src="../assets/images/washing-machine.jpeg" alt="Washing Machine">
     </div>
 </section>
 
@@ -110,9 +112,18 @@
     </div>
 </section>
 
-<footer>
-    <p>© 2026 Washex Laundry Tracker</p>
+<footer class="site-footer">
+    <a class="site-footer-logo" href="index.html">Washex</a>
+    <nav class="site-footer-nav" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="Services.html">Services</a>
+        <a href="About.html">About Us</a>
+        <a href="ContactUs.html">Contact</a>
+        <a href="TrackPage.html">Track Laundry</a>
+    </nav>
+    <p>© 2026 Washex Laundry Tracker. All rights reserved.</p>
 </footer>
 
+<script src="../scripts/services.js" defer></script>
 </body>
 </html>
