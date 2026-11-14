@@ -1,0 +1,132 @@
+/* Shared styles used by every Washex page (form messages, tracking result, nav state). */
+
+/* Author rules like `display:flex` otherwise override the HTML `hidden` attribute. */
+[hidden] {
+    display: none !important;
+}
+
+nav a[aria-current="page"] {
+    color: #2861e9;
+    font-weight: bold;
+}
+
+/* ---------- Form messages (login / signup / contact) ---------- */
+
+.form-message {
+    margin: 0 0 12px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.form-message.is-error {
+    background: #fdecec;
+    border: 1px solid #f5c2c2;
+    color: #9b2c2c;
+}
+
+.form-message.is-success {
+    background: #e6f6ef;
+    border: 1px solid #b7e4d0;
+    color: #1d6b4c;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+/* ---------- Track page result box ---------- */
+
+.tracking-result {
+    margin-top: 15px;
+    padding: 14px;
+    border-radius: 8px;
+    background: #f2f2ff;
+    color: #3a4558;
+    font-size: 13px;
+    text-align: left;
+    line-height: 1.5;
+}
+
+.tracking-result.is-error {
+    background: #fdecec;
+    border: 1px solid #f5c2c2;
+    color: #9b2c2c;
+}
+
+.tracking-result.is-success {
+    background: #f0f8f5;
+    border: 1px solid #cfe9df;
+}
+
+.tracking-result h2 {
+    margin: 0 0 4px;
+    font-size: 16px;
+    color: #252e3e;
+}
+
+.tracking-result-status {
+    margin: 0 0 10px;
+    font-weight: bold;
+    color: #1d6b4c;
+}
+
+.tracking-result dl {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 4px 14px;
+    margin: 0 0 12px;
+    font-size: 12px;
+}
+
+.tracking-result dt {
+    color: #6c7486;
+    font-weight: 600;
+}
+
+.tracking-result dd {
+    margin: 0;
+    color: #303949;
+}
+
+.tracking-status-link {
+    display: inline-block;
+    color: #ffffff;
+    background: #2861e9;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.tracking-status-link:hover {
+    background: #174bc5;
+}
+
+/* ---------- Status page loading / error panel ---------- */
+
+.status-message {
+    max-width: 730px;
+    margin: 60px auto;
+    padding: 24px;
+    border-radius: 10px;
+    background: #f1f1ff;
+    color: #3a4558;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.status-message.is-error {
+    background: #fdecec;
+    color: #9b2c2c;
+}
+
+.status-message a {
+    color: #1556ad;
+    font-weight: 600;
+}

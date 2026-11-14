@@ -1,6 +1,9 @@
 
 
 // Laundry tracking: look up the submitted ID in the server's order records.
+// Needs scripts/common.js (readApiResponse, Washex) to be loaded first.
+Washex.markActiveNav();
+
 const trackingForm = document.getElementById("trackingForm");
 const trackingResult = document.getElementById("trackingResult");
 
@@ -21,7 +24,7 @@ if (trackingForm && trackingResult) {
         trackingResult.className = "tracking-result";
 
         try {
-            const response = await fetch("/track-order", {
+            const response = await fetch(Washex.apiUrl("/track-order"), {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
                 body: new URLSearchParams(new FormData(trackingForm))
@@ -61,7 +64,10 @@ if (trackingForm && trackingResult) {
             trackingResult.append(heading, status, details, statusLink);
             trackingResult.classList.add("is-success");
         } catch (error) {
-            trackingResult.textContent = error.message || "Could not connect to the Washex server. Make sure server.js is running.";
+            // fetch() throws a TypeError when the server cannot be reached at all.
+            trackingResult.textContent = error instanceof TypeError
+                ? Washex.CONNECTION_ERROR
+                : (error.message || Washex.CONNECTION_ERROR);
             trackingResult.classList.add("is-error");
         } finally {
             if (submitButton) submitButton.disabled = false;
@@ -74,7 +80,7 @@ if (trackingForm && trackingResult) {
 const loggedInStatus = document.getElementById("loggedInStatus");
 const loggedInName = document.getElementById("loggedInName");
 if (loggedInStatus && loggedInName) {
-    fetch("/session", { credentials: "same-origin" })
+    fetch(Washex.apiUrl("/session"), { credentials: "include" })
         .then(readApiResponse)
         .then(result => {
             if (result.authenticated && result.user && result.user.fullName) {

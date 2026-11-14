@@ -1,5 +1,17 @@
 /* TRACK LAUNDRY PAGE */
 
+/* Reset: the navbar, card and inputs below set width:100% together with padding,
+   so they must use border-box sizing or the page scrolls sideways. */
+.track-page {
+    margin: 0;
+}
+
+.track-page *,
+.track-page *::before,
+.track-page *::after {
+    box-sizing: border-box;
+}
+
 .track-page {
     min-height: 100vh;
     display: flex;
@@ -550,5 +562,55 @@
 
     .track-page .auth-footer nav {
         gap: 12px;
+    }
+}
+
+
+/* =====================================
+   WASHEX TRACK PAGE - SMALL SCREEN HEADER FIX
+   The header (logo + 5 links + button + profile icon) was wider than a
+   phone screen, pushing the profile icon off the edge.
+   ===================================== */
+
+.track-page .track-bottom-links {
+    margin-top: 18px;
+}
+
+@media (max-width: 650px) {
+    .track-page .navbar {
+        height: auto;
+        padding: 10px 12px;
+        flex-wrap: wrap;
+        gap: 8px 12px;
+    }
+
+    .track-page .brand {
+        font-size: 14px;
+    }
+
+    /* links drop onto their own row under the logo and buttons */
+    .track-page nav {
+        order: 3;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px 16px;
+    }
+
+    .track-page .nav-actions {
+        gap: 6px;
+        flex-shrink: 0;
+    }
+
+    .track-page .track-btn {
+        padding: 6px 8px;
+        font-size: 10px;
+        white-space: nowrap;
+    }
+
+    .track-page .profile-btn {
+        width: 24px;
+        height: 24px;
+        flex-shrink: 0;
     }
 }

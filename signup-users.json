@@ -1,0 +1,10 @@
+[
+  {
+    "fullName": "Arun Kumar",
+    "email": "rare7261@gmail.com",
+    "phone": "8295169077",
+    "registeredAt": "2026-11-14T05:31:20.384Z",
+    "passwordSalt": "0c406e856e453b4d9f675553f97516b2",
+    "passwordHash": "0db3b08fee4c0d3a7fa9822aa791902984a646d94008541c0946bd39b294e8cc663306f697d623d062333f4d66139302a2c38b6aaa9482831eafd500862e9b1c"
+  }
+]

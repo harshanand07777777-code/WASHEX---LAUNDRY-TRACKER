@@ -222,6 +222,21 @@ const server = http.createServer(async (req, res) => {
         return sendJson(res, 400, { message: "Invalid request URL." });
     }
 
+    // Local development: let pages served by VS Code Live Server (e.g. 127.0.0.1:5500) call this API.
+    // Only http://localhost and http://127.0.0.1 origins are allowed; other sites get no CORS headers.
+    const origin = req.headers.origin;
+    if (origin && /^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin)) {
+        res.setHeader("Access-Control-Allow-Origin", origin);
+        res.setHeader("Access-Control-Allow-Credentials", "true");
+        res.setHeader("Vary", "Origin");
+    }
+    if (req.method === "OPTIONS") {
+        res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+        res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+        res.writeHead(204);
+        return res.end();
+    }
+
     if (req.method === "POST" && POST_RATE_LIMITS[url.pathname] && !checkPostRateLimit(req, res, url.pathname)) {
         return;
     }
@@ -444,6 +459,15 @@ const server = http.createServer(async (req, res) => {
         if (req.method === "HEAD") return res.end();
         fs.createReadStream(normalized).pipe(res);
     });
+});
+
+server.on("error", error => {
+    if (error.code === "EADDRINUSE") {
+        console.error(`Port ${PORT} is already in use. Close the other server (or run: PORT=3001 node server.js).`);
+    } else {
+        console.error("Server error:", error);
+    }
+    process.exit(1);
 });
 
 server.listen(PORT, () => {

@@ -4,18 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign Up - Washex</title>
-  <link rel="stylesheet" href="Login&SignUp.css">
+    <link rel="icon" href="../assets/favicon.ico">
+  <link rel="stylesheet" href="../styles/Login_SignUp.css">
+  <link rel="stylesheet" href="../styles/common.css">
 </head>
 <body>
 
   <header class="navbar">
-    <a href="Login.html" class="brand">Washex</a>
+    <a href="index.html" class="brand">Washex</a>
 
     <nav>
-      <a href="#">Home</a>
-      <a href="#">Services</a>
-      <a href="#">About Us</a>
-      <a href="#">Contact</a>
+      <a href="index.html">Home</a>
+      <a href="Services.html">Services</a>
+      <a href="About.html">About Us</a>
+      <a href="ContactUs.html">Contact</a>
       <a href="Login.html">Login</a>
     </nav>
 
@@ -41,7 +43,7 @@
         laundry effortlessly.
       </p>
 
-      <form id="signupForm" action="#" method="post">
+      <form id="signupForm" action="/signup" method="post">
 
         <label for="fullname">Full Name</label>
         <div class="input-wrap">
@@ -112,9 +114,9 @@
           <input type="checkbox" name="terms" required>
           <span>
             I agree to the
-            <a href="#">Washex Terms of Service</a>
+            <a href="ContactUs.html">Washex Terms of Service</a>
             and
-            <a href="#">Campus Laundry Guidelines</a>.
+            <a href="ContactUs.html">Campus Laundry Guidelines</a>.
           </span>
         </label>
 
@@ -133,18 +135,19 @@
   </main>
 
   <footer class="auth-footer">
-    <a href="Login.html" class="footer-brand">Washex</a>
+    <a href="index.html" class="footer-brand">Washex</a>
 
     <div class="footer-links">
-      <a href="#">Home</a>
-      <a href="#">Services</a>
-      <a href="#">About Us</a>
-      <a href="#">Contact</a>
+      <a href="index.html">Home</a>
+      <a href="Services.html">Services</a>
+      <a href="About.html">About Us</a>
+      <a href="ContactUs.html">Contact</a>
     </div>
 
     <span>© 2026 Washex Laundry Tracker. All rights reserved.</span>
   </footer>
-  <script src="script.js"></script>
+  <script src="../scripts/common.js"></script>
+  <script src="../scripts/signup.js"></script>
 
 </body>
 </html>

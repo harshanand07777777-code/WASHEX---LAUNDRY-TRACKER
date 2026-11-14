@@ -12,9 +12,12 @@
 
 ## Shared files
 
-- `scripts/common.js` contains shared response/message helpers. Do not make separate copies.
+- `scripts/common.js` contains shared response/message helpers (`readApiResponse`, `Washex.postForm`, `Washex.showMessage`, ...). Do not make separate copies. Every page must load it **before** its own script:
+  `<script src="/scripts/common.js"></script>` then `<script src="/scripts/<page>.js"></script>`.
+- `styles/common.css` holds shared form-message / tracking-result styles and the `[hidden]` fix. Link it on every page.
+- In HTML, reference CSS, JS and images with relative paths from the `pages/` folder (`../styles/...`, `../scripts/...`, `../assets/images/...`). This keeps pages styled even when opened without the server; the server only serves the `pages`, `styles`, `scripts` and `assets` folders.
 - `server.js` is the shared Node.js backend. The team leader should coordinate changes to it.
-- `data/` contains local application data. Do not commit real personal information or passwords.
+- `data/` contains local application data. `orders.json` is shared sample data and is committed; do not commit real personal information or passwords.
 - `scripts/script.js` is retained as a legacy notice; do not add it to HTML pages.
 
 ## Before each member starts

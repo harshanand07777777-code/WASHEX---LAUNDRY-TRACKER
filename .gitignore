@@ -2,5 +2,8 @@ node_modules/
 .env
 .DS_Store
 
-# Runtime data files may contain personal information
+# Runtime data files may contain personal information (accounts, messages)
 data/*.json
+
+# ...but the demo orders are sample data the whole team needs to test tracking
+!data/orders.json
