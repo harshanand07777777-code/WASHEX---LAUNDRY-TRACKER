@@ -38,8 +38,8 @@ if (contactForm) {
             const result = await readApiResponse(response);
 
             if (response.ok) {
+                alert(fullName + ", your message has been sent successfully!");
                 contactForm.reset();
-                showFormMessage(contactForm, result.message || ("Thank you, " + fullName + "! Your message has been saved successfully."), "success");
             } else {
                 showFormMessage(contactForm, result.message || "Could not submit your message. Please try again.");
             }
