@@ -21,8 +21,9 @@ if (trackingForm && trackingResult) {
         trackingResult.className = "tracking-result";
 
         try {
-            const response = await fetch("/track-order", {
+            const response = await fetch("http://127.0.0.1:3000/track-order", {
                 method: "POST",
+                credentials: "include",
                 headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
                 body: new URLSearchParams(new FormData(trackingForm))
             });
@@ -74,7 +75,7 @@ if (trackingForm && trackingResult) {
 const loggedInStatus = document.getElementById("loggedInStatus");
 const loggedInName = document.getElementById("loggedInName");
 if (loggedInStatus && loggedInName) {
-    fetch("/session", { credentials: "same-origin" })
+    fetch("http://127.0.0.1:3000/session", { credentials: "include" })
         .then(readApiResponse)
         .then(result => {
             if (result.authenticated && result.user && result.user.fullName) {

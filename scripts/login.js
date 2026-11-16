@@ -11,11 +11,12 @@ if (loginForm) {
         if (submitButton) submitButton.disabled = true;
 
         try {
-            const response = await fetch("/login", {
-                method: "POST",
-                headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
-                body: new URLSearchParams(new FormData(loginForm))
-            });
+            const response = await fetch("http://127.0.0.1:3000/login", {
+            method: "POST",
+            credentials: "include",
+            headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+            body: new URLSearchParams(new FormData(loginForm))
+        });
             const result = await readApiResponse(response);
 
             if (response.ok && result.redirect) {

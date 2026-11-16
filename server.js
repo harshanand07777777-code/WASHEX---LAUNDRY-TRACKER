@@ -30,7 +30,14 @@ const MIME_TYPES = {
 };
 
 function sendJson(res, status, payload) {
-    res.writeHead(status, { "Content-Type": "application/json; charset=utf-8" });
+    res.writeHead(status, {
+        "Content-Type": "application/json; charset=utf-8",
+        "Access-Control-Allow-Origin": "http://127.0.0.1:5500",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type"
+    });
+
     res.end(JSON.stringify(payload));
 }
 
@@ -215,6 +222,15 @@ const rateLimitCleanup = setInterval(() => {
 rateLimitCleanup.unref();
 
 const server = http.createServer(async (req, res) => {
+        if (req.method === "OPTIONS") {
+        res.writeHead(204, {
+            "Access-Control-Allow-Origin": "http://127.0.0.1:5500",
+            "Access-Control-Allow-Credentials": "true",
+            "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+            "Access-Control-Allow-Headers": "Content-Type"
+        });
+        return res.end();
+    }
     let url;
     try {
         url = new URL(req.url, `http://${req.headers.host || "localhost"}`);
