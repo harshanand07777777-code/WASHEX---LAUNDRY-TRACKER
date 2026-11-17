@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Track Laundry - Washex</title>
-    <link rel="icon" href="../assets/favicon.ico">
-    <link rel="stylesheet" href="../styles/TrackPage.css">
-    <link rel="stylesheet" href="../styles/common.css">
+    <link rel="stylesheet" href="TrackPage.css">
 </head>
 <body class="track-page">
 
@@ -16,9 +14,9 @@
 
         <nav>
             <a href="index.html">Home</a>
-            <a href="Services.html">Services</a>
-            <a href="About.html">About Us</a>
-            <a href="ContactUs.html">Contact</a>
+            <a href="#">Services</a>
+            <a href="#">About Us</a>
+            <a href="#">Contact</a>
             <a href="Login.html">Login</a>
         </nav>
 
@@ -52,7 +50,7 @@
             </p>
 
             <!-- Tracking Form -->
-            <form id="trackingForm" action="/track-order" method="post">
+            <form action="#" method="get">
 
                 <label for="laundry-number">
                     Laundry Number
@@ -66,15 +64,15 @@
                         id="laundry-number"
                         name="laundry-number"
                         placeholder="e.g. WX-10025"
-                        pattern="WX-[0-9]{5}"
-                        title="Enter a number like WX-10025 (WX- followed by 5 digits)"
+                        pattern="WX-[0-9]{4,5}"
+                        title="Enter a number like WX-10025"
                         required>
 
                     <span class="demo-badge">DEMO: 10025</span>
                 </div>
 
                 <p class="format-hint">
-                    Format: WX-XXXXX (WX- followed by 5 digits)
+                    Format: WX-XXXX
                 </p>
 
                 <button type="submit" class="tracking-submit">
@@ -82,9 +80,6 @@
                 </button>
 
             </form>
-
-            <!-- Result (filled in by tracking.js) -->
-            <div id="trackingResult" class="tracking-result" hidden aria-live="polite"></div>
 
             <!-- Information -->
             <div class="track-info">
@@ -96,16 +91,16 @@
             </div>
 
             <!-- Login Status -->
-            <div class="logged-in" id="loggedInStatus" hidden>
+            <div class="logged-in">
                 <span class="logged-dot"></span>
-                <span id="loggedInName">Logged in</span>
+                Logged in as Rahul Sharma
             </div>
 
             <!-- Bottom Links -->
             <div class="track-bottom-links">
                 <a href="index.html">← Back to Home</a>
                 <span class="link-separator">•</span>
-                <a href="ContactUs.html">Need help?</a>
+                <a href="#">Need help?</a>
             </div>
 
         </section>
@@ -122,18 +117,15 @@
 
         <div class="footer-links">
             <a href="index.html">Home</a>
-            <a href="Services.html">Services</a>
-            <a href="About.html">About Us</a>
-            <a href="ContactUs.html">Contact</a>
+            <a href="#">Services</a>
+            <a href="#">About Us</a>
+            <a href="#">Contact</a>
         </div>
 
         <span class="copyright">
             © 2026 Washex Laundry Tracker. All rights reserved.
         </span>
     </footer>
-
-    <script src="../scripts/common.js"></script>
-    <script src="../scripts/tracking.js"></script>
 
 </body>
 </html>
