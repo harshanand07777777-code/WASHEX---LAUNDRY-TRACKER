@@ -28,7 +28,7 @@ if (signupForm) {
         }
 
         try {
-            const response = await fetch("http://127.0.0.1:3000/signup", {
+            const response = await fetch("/signup", {
                 method: "POST",
                 credentials: "include",
                 body: new URLSearchParams(new FormData(signupForm))

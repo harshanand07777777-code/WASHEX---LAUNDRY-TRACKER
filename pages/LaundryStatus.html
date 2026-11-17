@@ -107,7 +107,7 @@
             <div class="tr-status-content">
                 <div class="tr-status-title-row">
                     <h2>Current Status: <span id="status-current-status">Not available</span></h2>
-                    <span class="tr-step-badge">STEP 3 OF 5</span>
+                    <span class="tr-step-badge">STEP 1 OF 5</span>
                 </div>
 
                 <p>
@@ -121,10 +121,13 @@
             </div>
 
             <div class="tr-progress-track">
-                <div class="tr-progress-fill"></div>
+                <div class="tr-progress-fill" style="width: 20%;"></div>
             </div>
         </section>
-
+        <!-- External API Widget for Parameter 1 -->
+            <div id="weather-widget" style="margin: 20px 0; padding: 15px; background-color: #e0f2fe; border-radius: 8px; text-align: center; color: #0369a1; font-weight: bold; border: 1px solid #bae6fd;">
+    🌤️      Fetching campus weather...
+            </div>
         <!-- Lifecycle Timeline -->
         <section class="tr-timeline-card">
 
@@ -154,25 +157,25 @@
                 </div>
 
                 <!-- Step 2 -->
-                <div class="tr-timeline-item completed">
+                <div class="tr-timeline-item upcoming">
                     <div class="tr-timeline-marker">
-                        <span>✓</span>
+                        <span></span>
                     </div>
 
                     <div class="tr-timeline-body">
                         <div class="tr-timeline-title-row">
                             <h3>2. Washing &amp; Drying</h3>
-                            <span class="tr-timeline-badge completed-badge">
-                                COMPLETED
+                            <span class="tr-timeline-badge upcoming-badge">
+                                UPCOMING
                             </span>
                         </div>
                         <p>Cleaned with hypoallergenic eco-safe detergent at 40°C.</p>
-                        <small data-order-date="washingCompletedAt">26 Sep 2026, 11:15 AM</small>
+                        <small data-order-date="washingCompletedAt"><span id="step2-date"></span></small>
                     </div>
                 </div>
 
                 <!-- Step 3 -->
-                <div class="tr-timeline-item in-progress">
+                <div class="tr-timeline-item upcoming">
                     <div class="tr-timeline-marker">
                         <span></span>
                     </div>
@@ -180,12 +183,12 @@
                     <div class="tr-timeline-body">
                         <div class="tr-timeline-title-row">
                             <h3>3. Ironing &amp; Steam Press</h3>
-                            <span class="tr-timeline-badge progress-badge">
-                                IN PROGRESS
+                            <span class="tr-timeline-badge upcoming-badge">
+                                UPCOMING
                             </span>
                         </div>
                         <p>Currently being steam pressed and carefully hung.</p>
-                        <small data-order-date="ironingStartedAt">Active since 26 Sep 2026, 03:40 PM</small>
+                        <small data-order-date="ironingStartedAt"><span id="step3-date"></span></small>
                     </div>
                 </div>
 
@@ -203,7 +206,7 @@
                             </span>
                         </div>
                         <p>Moving to automated smart locker B-12 once pressed and bagged.</p>
-                        <small data-order-date="expectedCollectionAt">Est. 27 Sep 2026, 10:00 AM</small>
+                        <small data-order-date="expectedCollectionAt"><span id="step4-date"></span></small>
                     </div>
                 </div>
 

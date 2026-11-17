@@ -1,89 +1,109 @@
-// Arun — Track Laundry page
-
-// Laundry tracking: look up the submitted ID in the server's order records.
+// Track existing orders and create new orders using the signed-in account.
 const trackingForm = document.getElementById("trackingForm");
 const trackingResult = document.getElementById("trackingResult");
+const placeOrderSection = document.getElementById("placeOrderSection");
+const placeOrderForm = document.getElementById("placeOrderForm");
+const orderCreateResult = document.getElementById("orderCreateResult");
+const loggedInStatus = document.getElementById("loggedInStatus");
+const loggedInName = document.getElementById("loggedInName");
+
+function showOrderDetails(order) {
+    trackingResult.replaceChildren();
+    const heading = document.createElement("h2");
+    heading.textContent = `Order ${order.orderId}`;
+    const status = document.createElement("p");
+    status.className = "tracking-result-status";
+    status.textContent = `Current status: ${order.currentStatus}`;
+    const details = document.createElement("dl");
+    [
+        ["Customer", order.customerName], ["Service", order.serviceType],
+        ["Date submitted", order.dateSubmitted], ["Intake desk", order.intakeDesk],
+        ["Verified weight", order.verifiedWeight], ["Expected collection", order.expectedCollection],
+        ["Collection location", order.collectionLocation], ["Estimated completion", order.estimatedCompletion]
+    ].forEach(([label, value]) => {
+        const term = document.createElement("dt"); term.textContent = label;
+        const description = document.createElement("dd"); description.textContent = value || "Not available";
+        details.append(term, description);
+    });
+    const link = document.createElement("a");
+    link.href = `LaundryStatus.html?orderId=${encodeURIComponent(order.orderId)}`;
+    link.textContent = "View full order status";
+    link.className = "tracking-status-link";
+    trackingResult.append(heading, status, details, link);
+    trackingResult.className = "tracking-result is-success";
+    trackingResult.hidden = false;
+}
+
+async function postForm(url, form) {
+    const response = await fetch(url, {
+        method: "POST", credentials: "include",
+        headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+        body: new URLSearchParams(new FormData(form))
+    });
+    const result = await readApiResponse(response);
+    if (!response.ok) throw new Error(result.message || "Request failed.");
+    return result;
+}
 
 if (trackingForm && trackingResult) {
-    const trackingNumberInput = trackingForm.querySelector("[name=\"laundry-number\"]");
-    if (trackingNumberInput) {
-        trackingNumberInput.addEventListener("input", function() {
-            this.value = this.value.toUpperCase().replace(/\s+/g, "");
-        });
-    }
-
-    trackingForm.addEventListener("submit", async function(event) {
+    const input = trackingForm.querySelector('[name="laundry-number"]');
+    input?.addEventListener("input", function () { this.value = this.value.toUpperCase().replace(/\s+/g, ""); });
+    trackingForm.addEventListener("submit", async event => {
         event.preventDefault();
-        const submitButton = trackingForm.querySelector('button[type="submit"]');
-        if (submitButton) submitButton.disabled = true;
+        const button = trackingForm.querySelector('button[type="submit"]');
+        if (button) button.disabled = true;
         trackingResult.hidden = false;
-        trackingResult.textContent = "Looking up your laundry order…";
         trackingResult.className = "tracking-result";
-
+        trackingResult.textContent = "Looking up your laundry order…";
         try {
-            const response = await fetch("http://127.0.0.1:3000/track-order", {
-                method: "POST",
-                credentials: "include",
-                headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
-                body: new URLSearchParams(new FormData(trackingForm))
-            });
-            const result = await readApiResponse(response);
-            if (!response.ok) throw new Error(result.message || "Order lookup failed.");
-
-            const order = result.order;
-            trackingResult.replaceChildren();
-            const heading = document.createElement("h2");
-            heading.textContent = `Order ${order.orderId}`;
-            const status = document.createElement("p");
-            status.className = "tracking-result-status";
-            status.textContent = `Current status: ${order.currentStatus}`;
-            const details = document.createElement("dl");
-            const fields = [
-                ["Customer", order.customerName],
-                ["Service", order.serviceType],
-                ["Date submitted", order.dateSubmitted],
-                ["Intake desk", order.intakeDesk],
-                ["Verified weight", order.verifiedWeight],
-                ["Expected collection", order.expectedCollection],
-                ["Collection location", order.collectionLocation],
-                ["Estimated completion", order.estimatedCompletion]
-            ];
-            fields.forEach(([label, value]) => {
-                const term = document.createElement("dt");
-                term.textContent = label;
-                const description = document.createElement("dd");
-                description.textContent = value || "Not available";
-                details.append(term, description);
-            });
-            const statusLink = document.createElement("a");
-            statusLink.href = `LaundryStatus.html?orderId=${encodeURIComponent(order.orderId)}`;
-            statusLink.textContent = "View full order status";
-            statusLink.className = "tracking-status-link";
-            trackingResult.append(heading, status, details, statusLink);
-            trackingResult.classList.add("is-success");
+            const result = await postForm("/track-order", trackingForm);
+            showOrderDetails(result.order);
         } catch (error) {
-            trackingResult.textContent = error.message || "Could not connect to the Washex server. Make sure server.js is running.";
-            trackingResult.classList.add("is-error");
-        } finally {
-            if (submitButton) submitButton.disabled = false;
-        }
+            trackingResult.textContent = error.message || "Could not connect to the WASHEX server.";
+            trackingResult.className = "tracking-result is-error";
+        } finally { if (button) button.disabled = false; }
     });
 }
 
-
-// Show the signed-in user's name only when the server confirms a valid session.
-const loggedInStatus = document.getElementById("loggedInStatus");
-const loggedInName = document.getElementById("loggedInName");
-if (loggedInStatus && loggedInName) {
-    fetch("http://127.0.0.1:3000/session", { credentials: "include" })
-        .then(readApiResponse)
-        .then(result => {
-            if (result.authenticated && result.user && result.user.fullName) {
-                loggedInName.textContent = `Logged in as ${result.user.fullName}`;
-                loggedInStatus.hidden = false;
-            } else {
-                loggedInStatus.hidden = true;
-            }
-        })
-        .catch(() => { loggedInStatus.hidden = true; });
+if (placeOrderForm) {
+    placeOrderForm.addEventListener("submit", async event => {
+        event.preventDefault();
+        const button = placeOrderForm.querySelector('button[type="submit"]');
+        if (button) button.disabled = true;
+        orderCreateResult.hidden = false;
+        orderCreateResult.className = "tracking-result";
+        orderCreateResult.textContent = "Submitting your laundry order…";
+        try {
+            const result = await postForm("/orders", placeOrderForm);
+            orderCreateResult.replaceChildren();
+            const message = document.createElement("p");
+            message.textContent = result.message;
+            const number = document.createElement("h2");
+            number.textContent = `Your laundry number: ${result.orderId}`;
+            const hint = document.createElement("p");
+            hint.textContent = "Keep this number safe. Enter it in the tracking form below to check your order.";
+            orderCreateResult.append(message, number, hint);
+            orderCreateResult.className = "tracking-result is-success";
+            placeOrderForm.reset();
+            const trackInput = trackingForm?.querySelector('[name="laundry-number"]');
+            if (trackInput) trackInput.value = result.orderId;
+        } catch (error) {
+            orderCreateResult.textContent = error.message || "Could not create your order.";
+            orderCreateResult.className = "tracking-result is-error";
+        } finally { if (button) button.disabled = false; }
+    });
 }
+
+fetch("/session", { credentials: "include" })
+    .then(readApiResponse)
+    .then(result => {
+        if (result.authenticated && result.user) {
+            if (loggedInName) loggedInName.textContent = `Logged in as ${result.user.fullName}`;
+            if (loggedInStatus) loggedInStatus.hidden = false;
+            if (placeOrderSection) placeOrderSection.hidden = false;
+        } else {
+            if (loggedInStatus) loggedInStatus.hidden = true;
+            if (placeOrderSection) placeOrderSection.hidden = true;
+        }
+    })
+    .catch(() => { if (placeOrderSection) placeOrderSection.hidden = true; });

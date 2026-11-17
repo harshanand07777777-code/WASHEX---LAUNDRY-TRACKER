@@ -845,3 +845,24 @@
     .tracking-result dl { grid-template-columns: 1fr; gap: 3px; }
     .tracking-result dd { margin-bottom: 8px; }
 }
+
+
+/* New order form */
+.place-order-section {
+    margin: 24px 0;
+    padding: 20px;
+    border: 1px solid #dbe5f5;
+    border-radius: 14px;
+    background: #f8fbff;
+    text-align: left;
+}
+.place-order-section h2 { margin: 0 0 8px; font-size: 1.25rem; color: #172b4d; }
+.place-order-section p { color: #64748b; line-height: 1.5; }
+.place-order-section label { display: block; margin: 14px 0 6px; font-weight: 600; }
+.place-order-section select,
+.place-order-section textarea {
+    width: 100%; box-sizing: border-box; padding: 12px;
+    border: 1px solid #cbd5e1; border-radius: 8px; font: inherit; background: #fff;
+}
+.place-order-section textarea { resize: vertical; }
+.place-order-section [hidden] { display: none !important; }

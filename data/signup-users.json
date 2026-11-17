@@ -1,0 +1,10 @@
+[
+  {
+    "fullName": "Harsh",
+    "email": "harshanand07777777@gmail.com",
+    "phone": "+91 6287363188",
+    "registeredAt": "2026-11-16T20:00:59.781Z",
+    "passwordSalt": "f5cfec2a918e91c4560b23d5f3ba0f1e",
+    "passwordHash": "6692ce1ffaeb8e971e03da7eb2d23e9f41f582ab22f57617a9c2bf1d092bb27e44d33b4101fcbc648c7d87e7f218527c04b75bcec2b475183babef375f942970"
+  }
+]

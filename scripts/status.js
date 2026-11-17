@@ -26,6 +26,7 @@ if (statusPage) {
     } else {
         fetch("/track-order", {
             method: "POST",
+            credentials: "include",
             headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
             body: new URLSearchParams({ "laundry-number": orderId })
         }).then(async response => {
@@ -43,6 +44,13 @@ if (statusPage) {
             setText("status-current-status", order.currentStatus);
             setText("status-estimated-completion", formatDateTime(order.estimatedCompletionAt || order.estimatedCompletion));
             setText("status-last-updated", `Last updated: ${formatDateTime(order.lastUpdatedAt)}`);
+            
+            // --- NEW LINES ADDED HERE ---
+            setText("step2-date", "pending");
+            setText("step3-date", "Pending");
+            setText("step4-date", "Pending");
+            // ----------------------------
+            
             const collection = new Date(order.expectedCollectionAt);
             if (!Number.isNaN(collection.getTime())) {
                 setText("status-collection-date", new Intl.DateTimeFormat("en-GB", { day: "2-digit", month: "short" }).format(collection));
@@ -63,7 +71,30 @@ if (statusPage) {
     }
 }
 
-
 function printReceipt() {
     window.print();
 }
+
+// --- EXTERNAL API CALL (Parameter 1) ---
+function loadWeatherApi() {
+    const weatherWidget = document.getElementById("weather-widget");
+    if (!weatherWidget) return;
+
+    // Fetching data from the free Open-Meteo external API
+    fetch("https://api.open-meteo.com/v1/forecast?latitude=28.20&longitude=76.84&current_weather=true")
+        .then(response => {
+            if (!response.ok) throw new Error("API Network error");
+            return response.json(); // Parsing the JSON data
+        })
+        .then(data => {
+            const temp = data.current_weather.temperature;
+            weatherWidget.innerHTML = `🌤️ Current Campus Weather: <strong>${temp}°C</strong>. Great day to get your laundry done!`;
+        })
+        .catch(error => {
+            weatherWidget.style.display = "none"; // Hides widget if API fails
+            console.error("External API Error:", error);
+        });
+}
+
+// Run the API call when the page loads
+loadWeatherApi();

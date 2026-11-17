@@ -11,7 +11,7 @@ if (loginForm) {
         if (submitButton) submitButton.disabled = true;
 
         try {
-            const response = await fetch("http://127.0.0.1:3000/login", {
+            const response = await fetch("/login", {
             method: "POST",
             credentials: "include",
             headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },

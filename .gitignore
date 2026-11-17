@@ -1,6 +1,3 @@
 node_modules/
 .env
 .DS_Store
-
-# Runtime data files may contain personal information
-data/*.json

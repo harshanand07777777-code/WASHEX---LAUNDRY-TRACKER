@@ -48,6 +48,26 @@
                 status of your laundry.
             </p>
 
+            <!-- Place a new order (available after login) -->
+            <section id="placeOrderSection" class="place-order-section" hidden>
+                <h2>Place a Laundry Order</h2>
+                <p>Choose a service and submit your laundry request. We will generate your laundry number.</p>
+                <form id="placeOrderForm">
+                    <label for="service-type">Laundry Service</label>
+                    <select id="service-type" name="service-type" required>
+                        <option value="">Select a service</option>
+                        <option value="Washing">Washing</option>
+                        <option value="Ironing">Ironing</option>
+                        <option value="Washing + Ironing">Washing + Ironing</option>
+                        <option value="Dry Cleaning">Dry Cleaning</option>
+                    </select>
+                    <label for="order-notes">Additional instructions (optional)</label>
+                    <textarea id="order-notes" name="order-notes" rows="3" maxlength="500" placeholder="Example: Keep delicate clothes separate"></textarea>
+                    <button type="submit" class="tracking-submit">Place Order</button>
+                </form>
+                <div id="orderCreateResult" class="tracking-result" role="status" aria-live="polite" hidden></div>
+            </section>
+
             <!-- Tracking Form -->
             <form id="trackingForm" action="#" method="post">
 
